@@ -1,0 +1,29 @@
+Lots of stuff is done
+-Got rid of annoying alert box upon loading and replaced with cool custom welcome box (needs prettying)
+-added custom and random splash text for funzies
+-actually got something done that is super helpful: I made it to where info is stored in the url and depending on what qrcode / link you go to it gives you that amount of points
+-cleaned up a few things here and there
+-added help pages which are currently empty.....
+-added a built-in scanner which just gives live feed of camera or atleast it should idk if ive fixed that or not as of me writing this 
+*UPDATE CAMREA WORKS ON COMPUTERS BUT NOT PHONES WHICH IS REALLY ODD GONNA FIX LATER
+**UPDATE TO THE UPDATE scrapped all the previous code (just yeeted it out the window) and instead found new scanner code which is now implemented. Few kinks and such i need to work out like actually making it redirect to the corrosoponding site
+***UPDATE TO THE UPDATE OF THE UPDATE it redirects to the site that is scanned now
+-added cookie so that after you exit cookie alert box you dont see it again (which works good because if you clear cookies it will reapear)
+-NFC tags????? I had that idea don't know if i should invest in a few. Not too expensive but they loook fun. Let me know what you think
+-welcome box looks ~funky~ on phones and i honesly have no clue why
+-turned off click for my sanity's sake
+Original scanner code can be found at https://scavenger-hunt.live/OGscanner.html
+-Theres a lot of easter eggs
+-I have too much time on my hands
+
+-fixed www.scavenger-hunt.live so it now redirects to main site
+
+
+
+TESTING
+-Above iPhone 5/Se website looks good (A little cramped on that phone screen)
+-Also looks cramped on galaxy fold but come one who is gonna be using a galaxy fold on our website
+-Splash text looks a little odd until the alert box is exited
+-Lots of ~funky~ stuff happening on phones not sure why will fix in future
+-The smaller the phone screen the more cramped the page looks which is expected
+-Splash text gets a bit funky placement wise but its fine
