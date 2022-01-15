@@ -1,0 +1,585 @@
+
+<!--
+
+Wow look at you coder boy. or girl. Here to change some stuff or just look around? Well if you change stuff I won't like it but 
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Scavenger Hunt</title>
+    <!--^ No touchie touchie above ^-->
+    <!--If it doesnt work click the "Open in a new tab" Button on the top right of the preview square thing-->
+  </head>
+  <script>
+    //const audio = require('@replit/audio');
+    var newPoints = 0;
+    var userPoints = 0;
+    var toggle = true;
+    var alertToggle = true;
+    //var enableGames = true;
+
+    function start() {
+      checkCookie();
+      checkAddedCookies();
+      checkURL();
+      splashText();
+      generalKenobi();
+      weirdWayOfSettingVolume();
+
+      //Uncomment Line below to auto rickroll
+      //location.href="https://www.scavenger-hunt.live";
+
+      //if(confirm("Allow games?")) {
+      //  setCookie("gotDrop")
+      //}
+    }
+
+/*
+WORK ON THIS VVVV
+>> URL POSTING AS DATA
+
+    function cookiesEnabled() {
+      if (navigator.cookieEnabled) {
+        document.getElementById("alert").visible = "false";
+      } else {
+        document.getElementById("alert").visible = "true";
+      }
+    }
+
+*/
+
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      var expires = "expires="+d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+    function checkCookie() {
+      var gettingName = true;
+      var user = getCookie("username");
+      var userPoints = getCookie("userPoints");
+      if (user != "") {
+        if (window.location.search != "?naf")
+          document.getElementById("welcomeBox").style.visibility = "visible";
+          //alert("Welcome again " + user + "\nYou have " + userPoints + " points");
+      } else {
+        while (gettingName) {
+          user = prompt("Please enter your name:", "");
+          if (user != "" && user != null) {
+            setCookie("username", user, 365);
+            setCookie("userPoints", newPoints, 365);
+            gettingName = false;
+          }
+        }
+      }
+    
+      document.getElementById("pName").innerHTML = user;
+      document.getElementById("pPoints").innerHTML = userPoints;
+      document.getElementById("aName").innerHTML = user;
+      document.getElementById("aPoints").innerHTML = userPoints;
+    }
+//////////
+    function checkURL() {
+
+      var gotIt = window.location.search;
+
+      if (gotIt != null && gotIt == "?xy48anpqr") {
+        givePoint(100);
+        alert("Congrats on getting 1st place!! \nHere's 100 points!!");
+        window.location.href = "https://scavenger-hunt.live/index.html?naf";
+      } else if (gotIt != null && gotIt == "?9duwk2p2t") {
+        givePoint(50);
+        alert("Congrats on getting 2nd place!! \nHere's 50 points!!");
+        window.location.href = "https://scavenger-hunt.live/index.html?naf";
+      } else if (gotIt != null && gotIt == "?iou7nkd5g") {
+        givePoint(25);
+        alert("Congrats on getting 3rd place!! \nHere's 25 points!!");
+        window.location.href = "https://scavenger-hunt.live/index.html?naf";
+      }
+    }
+
+    function clearCookies() {
+      if (window.confirm("Are you sure you want to clear points?")) {
+        document.getElementById("pPoints").innerHTML = "0";
+        setCookie("userPoints", 0);
+      }
+    }
+    function clearUsername() {
+      if (window.confirm("Are you sure you want to clear username?")) {
+        document.getElementById("pName").innerHTML = "";
+        setCookie("username", "");
+        checkCookie();
+      }
+    }
+
+    function checkAddedCookies() {
+      var dropCheck = getCookie("gotDrop");
+      if (dropCheck != "") {
+        document.getElementById("drag1").style.visibility = "hidden";
+      }
+      var darkCheck = getCookie("darkMode");
+      if (darkCheck == "true") {
+        darkMode();
+      }
+      var alertCheck = getCookie("alertBox");
+      if (alertCheck == "true") {
+        document.getElementById("alert").style.display='none';
+      }
+    }
+
+
+    function givePoint(amount) {
+      userPoints = parseInt(getCookie("userPoints"));
+      userPoints += amount;
+      document.getElementById("pPoints").innerHTML = userPoints;
+      setCookie("userPoints", userPoints);
+    }
+
+    function darkMode() {
+      var x = document.getElementById("div1");
+      var p = document.getElementById("drag1");
+      var element = document.body;
+      if (toggle == true) {
+        //alert("Dark Mode On");
+        //x.style.border = "1px solid #050505";
+        //p.src = "black_box.png";
+        setCookie("darkMode", true, 365);
+        toggle = false;
+      } else {
+        //alert("Dark Mode Off");
+        //x.style.border = "1px solid #fafeff";
+        //p.src = "white_box.png";
+        setCookie("darkMode", false, 365);
+        toggle = true;
+      }
+      element.classList.toggle("dark-mode");
+    }
+
+
+    function cheatCode() {
+      document.getElementById("cheatDown").innerHTML = "Well That doesn't work. The main developer here is Braden who is extremely proud with what he has achieved so far. Hopefully you like it. If you have any suggestions just email or text Braden because this website is very hard to get and he probably gave it to you."
+    }
+
+    function generalKenobi() {
+      console.info("Well Hello there");
+
+
+      console.info("\n\n\n\n\n\n\n\n\n\n\n\nGeneral Kenobi");
+    }
+    function weirdWayOfSettingVolume() {
+      volumeC(0);
+      volumeC(0);
+      volumeC(0);
+      volumeC(0);
+      volumeC(0);
+      volumeC(0);
+      volumeC(0);
+      volumeC(0);
+      volumeC(0);
+    }
+
+    /*
+    function userData(str) {
+      var data = new FormData();
+      data.append('var1', 'var1value');
+      data.append('var2', 'var2value');
+      window.location.href = "database.php?w1=" + var1 + "&w2=" + var2;
+      
+      var var1 = getCookie("username");
+      var var2 = getCookie("userPoints");
+      var url = "database.php";
+      var parameters = "var1=" + var2 + "&var2=" + var1;
+      var xr = new XMLHttpRequest();
+      xr.open('POST', url, true);
+      xr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      xr.send(parameters);
+      alert(xr.responseText);
+
+    }
+    */
+    
+    /*
+    var down = document.getElementById("cheatDown");
+    function cheatCode() {
+      var form = document.createElement("form"); 
+      form.setAttribute("method", "post"); 
+      form.setAttribute("action", "submit.php");
+      var PWD = document.createElement("input"); 
+      PWD.setAttribute("type", "password"); 
+      PWD.setAttribute("name", "password"); 
+      PWD.setAttribute("placeholder", "Password");
+      var sub = document.createElement("input"); 
+      sub.setAttribute("type", "submit"); 
+      sub.setAttribute("value", "Submit");
+      form.append(PWD);
+      form.append(sub);
+      document.getElementsByTagName("body")[0].appendChild(form);
+    }
+    */
+
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+    function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      ev.target.appendChild(document.getElementById(data));
+      givePoint(5);
+      setCookie("gotDrop", true, 1);
+    }
+
+    var x = 120;
+    var y = 240;
+    var z = 0;
+    var crazy = true;
+
+    function colorCrazy() {
+      //document.getElementById('mainBody').style.backgroundColor = "white";
+      document.getElementById('mainBody').style.backgroundImage = 'radial-gradient(hsl('+x+', 100%, 50%), hsl('+y+', 100%, 50%), hsl('+z+', 100%, 50%))';
+      x += 1;
+      y += 1;
+      z += 1;
+	  }
+    function HEGF() {
+      console.clear();
+      console.log("🥚" + "\nha get it\nits an ~easter egg~");
+    }
+    function crazyONOFF() {
+      if (!crazy) {
+        crazy = true;
+      }else {
+        crazy = false;
+      }
+      setInterval(function(){ 
+        if(crazy) {
+          colorCrazy();
+        }
+      }, 1);
+    }
+    
+    function alertBox() {
+      document.getElementById("alert").style.display='none';
+      setCookie("alertBox", true, 365);
+    }
+
+    function welcomeBoxAnim() {
+      document.getElementById("welcomeBox").style.animation = "phaseOut 1s";
+      var wba = document.getElementById("welcomeBox");
+      wba.addEventListener("animationend", endBoxAnimation);
+    }
+    
+    function endBoxAnimation() {
+      document.getElementById("welcomeBox").style.visibility = "hidden";
+    }
+
+
+    function splashText() {
+      let splashTextList = ["Over 1000 lines<br>of code!", "Made with sweat,<br>tears, and a<br>whole lotta coffee", "What is sleep?", "Home of the<br>computer nerds", "Still in<br>development!", "error.exe", "I code too much<br>-Braden", "help", "If you are<br>seeing this<br>Good Job!", "Also try <br> <a href='https://adp-html-project-c1.jonastechmanski.repl.co/'>Mental Math Trainer!!</a>", "I hope you<br>have a great<br>day &#128151;", "It's too early<br>for this<br>-Froylan"];
+
+      var splash = document.getElementById("splash");
+      var rand = Math.floor(Math.random() * splashTextList.length + 1);
+      splash.innerHTML = splashTextList[rand-1];
+    }
+
+    function patchNotes() {
+      window.location.href = 'https://scavenger-hunt.live/whatsdone.txt';
+    }
+    function toScanner() {
+      window.location.href = 'https://scavenger-hunt.live/scanner.html';
+    }
+    function toHelp() {
+      window.location.href = 'https://scavenger-hunt.live/help/page-1.html';
+    }
+  </script>
+
+
+  <body onload="start()"></body>
+  <body id="mainBody">
+    <div id="alert" class="alert">
+      <span class="closebtn" onclick="alertBox()">&times;</span>
+      WARNING THIS SITE USES COOKIES IN ORDER TO SAVE INFORMATION IF COOKIES ARE OFF THE SITE MAY NOT WORK PROPERLY
+    </div>
+    
+    <div id="welcomeBox" class="welcomeBox">
+      <button class="welcomeBoxButton" onClick="welcomeBoxAnim()">x</button>
+      Welcome <div id="aName"></div><br>
+      You have <div id="aPoints"></div> points!
+    </div>
+    
+    
+    <div class="titleBox">
+      <div class="info">
+        Username: <pName id="pName"></pName>
+        <br>
+        Points: <pPoints id="pPoints"></pPoints>
+        <div class="outerSplash"><div class="splash" id="splash"></div></div>
+      </div>
+
+      <h1>Scavenger Hunt</h1>
+      <center><div id="animated_div">
+        Welcome to the main site!
+        &#128512;
+      </div>
+      </center>
+    </div>
+    
+
+    <canvas hidden="true">
+      <audio
+        id="click";
+        src="Click.mp3">
+          Your browser does not support the
+          <code>audio</code> element.
+      </audio>
+    </canvas>
+
+
+    <div class="middleArea">
+      <div class="slidecontainer">
+        <input type="range" min="0" max="360" value="180" class="slider" id="myRange">
+      </div>
+
+      <label class="switch">
+        <input type="checkbox" id="sliderswitch" onClick="brodySwitch()">
+        <span class="sliderswitch"></span>
+      </label>
+      <br>
+      <button onClick="givePoint(1)">Give Points for testing</button>
+      
+
+      <!--<button id="darkToggle" onClick="darkMode()">Toggle Dark Mode</button> -->
+      <button id="clearCookies" onClick="clearCookies()">Clear Points</button><button id="clearCookies" onClick="clearUsername()">Clear Username</button>
+      <!--
+      <button onClick = "crazyONOFF()"> Crazy Mode On/Off</button>
+      -->
+      <!--https://www.w3schools.com/tags/default.asp-->
+      <br>
+      <img id="drag1" src="white_boxEdit.png" draggable="true" ondragstart="drag(event)" width="20" height="20">
+      <br><br>
+      <p>This site is still in heavy beta stages. <br> Creators: Braden Pool, Brody Lake, James Strickert and Froylan Racey</p>
+    </div>
+
+
+    <div class="middleLine">
+      <br>
+      <button onClick= "patchNotes()">Patch Notes</button>
+      <br>
+      Test Links (Skip the QR Code)<br><a href="scan-prize/first.html">First </a> || <a href="scan-prize/second.html">Second </a> || <a href="scan-prize/third.html">Third</a>
+    </div>
+
+    <div class="bottomMid">
+      <br>
+      <br><br>
+    <p>So far this site will store the amount of points you have, your username, if you have done the secret puzzle (😮), and more!</p>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" color="transparent"></div>
+    
+    <p><br>
+    <button id="HEG" onClick = "HEGF()"></button>
+    <br><strong>If you want to keep up with what we are working on go to: https://scavenger-hunt.live <br></strong>Not the best domain but it was the best that we could get</p>
+    <!--
+    <form action="https://www.scavenger-hunt.live">
+      <input type="submit" value="Click for MAX POINTS" />
+    </form>
+    -->
+    <button hidden="true" onClick="cheatCode()">click here if you know the passcode</button>
+    <div id="cheatDown"></div>
+    <br><br>
+
+    <!--<button class="buttonMasherClass" id="buttonMasher" onClick="givePoint(10)">Click for 10 points</button>
+    </div>
+    -->
+
+    <canvas hidden="true">
+      <audio
+        id="noise";
+        controls
+        ontimeupdate="timeRemain()";
+        autoplay = true;
+        src="music/Key.mp3">
+          Your browser does not support the
+          <code>audio</code> element.
+      </audio>
+    </canvas>
+
+    <!--AUDIO-->
+    <div class= "audioBox">
+      
+
+      <div class="current">
+        <span id="current">Current Song: Key</span>
+        <br><span id="tracktime"></span>
+      </div>
+      <div class="volume" id="volume">
+        <label for="volumeBar">Volume:</label>
+        <progress id="volumeBar" value="100" max="100"></progress>
+        <button aria-label="decrease volume" id="volumeDown" onclick="volumeC(0)">🔽</button>
+        <button aria-label="increase volume" id="volumeUp" onClick="volumeC(1)">🔼</button>
+      </div>
+
+      
+      <div class="controls">
+        <br>
+        <button aria-label="Previous Track" id="back" onclick="next(0)">⏮</button>
+        <button aria-label="Play/Pause" id="playPause" onclick="togglePlay()">⏯</button>
+        <button aria-label="Next Track" id="next" onclick="next(1)">⏭</button>
+        <br>
+        <br>
+        <br>
+        All Music is By: C418
+        <br><a href="https://c418.org/">https://c418.org/</a>
+      </div>
+    </div>
+    <div class="links">
+      <button onClick = "toHelp()">Need Help? Click <strong>HERE</strong></button> <b>OR</b> 
+      <button OnClick = "toScanner()">Click <b>HERE</b> to go to the built in scanner</button>
+    </div>
+  </body>
+  <script>
+    //AUDIO vv
+    document.getElementById("click").autoplay = false;
+    var song = document.getElementById("noise");
+    let audioTracks = ['Key', 'Door', 'Subwoofer Lullaby', 'Death', 'Living Mice', 'Moog City', 'Haggstrom', 'Minecraft', 'Oxygène', 'Équinoxe', 'Mice on Venus', 'Dry Hands', 'Wet Hands', 'Clark', 'Chris'];
+    var ct = 0;
+
+    function volumeC(vol) {
+      if (vol == 1) {
+        song.volume += 0.1;
+        document.getElementById('volumeBar').value = (song.volume * 100);
+      } else {
+        song.volume -= 0.1;
+        document.getElementById('volumeBar').value = (song.volume * 100);
+      }
+    }
+    function togglePlay() {
+      if (song.paused) {
+        song.play();
+      }
+      else {
+        song.pause();
+      }
+    }
+
+    function next(int) {
+      if (ct+1 == audioTracks.length) {
+        ct = -1;
+      }
+      if (int == 1) {
+        ct ++;
+        document.getElementById('noise').src = "music/" + audioTracks[ct] + ".mp3";
+        document.getElementById('current').innerHTML = "Current Song: " + audioTracks[ct];
+        
+      } else if ((int==0) && (ct-1 >= 0)) {
+        ct --;
+        document.getElementById('noise').src = "music/" + audioTracks[ct] + ".mp3";
+        document.getElementById('current').innerHTML = "Current Song: " + audioTracks[ct];
+        
+      }
+      console.warn("Song now being played: " + audioTracks[ct]);
+    }
+
+    function timeRemain() {
+      var duration = Math.floor(song.duration);
+      var current = Math.floor(song.currentTime);
+      var minTemp = 0;
+      var secTemp = 0;
+      var finDur = "";
+      var finCur = "";
+
+      secTemp = duration % 60;
+      duration -= secTemp;
+      minTemp = duration / 60;
+      if (secTemp < 10)
+        finDur = minTemp + ":0" + secTemp;
+      else
+        finDur = minTemp + ":" + secTemp;
+
+      secTemp = current % 60;
+      current -= secTemp;
+      minTemp = current / 60;
+      if (secTemp < 10)
+        finCur = minTemp + ":0" + secTemp;
+      else
+        finCur = minTemp + ":" + secTemp;
+      document.getElementById('tracktime').innerHTML = finCur + ' / ' + finDur;
+    }
+
+    setInterval(function(){ 
+      if(song.ended) {
+        next(1)
+      }
+    }, 1);
+
+
+    var x = document.getElementById("animated_div");
+    x.addEventListener("webkitAnimationEnd", clickSoundFunction);
+    var swtoggle = false;
+    var sValue = 0;
+    var cValue = 50;
+    var bodyMain = document.getElementById('mainBody');
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    var switc = document.getElementById("sliderswitch");
+    slider.oninput = function() {
+      cValue = parseInt(this.value);
+      var x = 120;
+      var y = 240;
+      var z = 0;
+      if (cValue > sValue) {
+        x += cValue;
+        y += cValue;
+        z += cValue;
+      } else {
+        x -= cValue;
+        y -= cValue;
+        z -= cValue;
+      }
+
+      //alert(x+ " " + y + " "+ z + " " + this.value);
+      bodyMain.style.backgroundImage = 'radial-gradient(hsl('+x+', 100%, 50%), hsl('+y+', 100%, 50%), hsl('+z+', 100%, 50%))';
+      sValue = this.value;
+    }
+
+    function brodySwitch() {
+      if (swtoggle) {
+        swtoggle = false;
+        //bodyMain.style.backgroundImage.visibility = 'hidden';
+        bodyMain.style.backgroundImage = 'url(white_boxEdit.png)';
+        slider.style.visibility = 'hidden';
+      } else {
+        swtoggle = true;
+        slider.style.visibility = 'visible';
+        slider.value = '180';
+        bodyMain.style.backgroundImage = 'radial-gradient(hsl(120, 100%, 50%), hsl(240, 100%, 50%), hsl(0, 100%, 50%))';
+        //bodyMain.style.backgroundImage.visibility = 'visible';
+      }
+    }
+
+    function clickSoundFunction() {
+      //document.getElementById("click").play();
+    }
+  </script>
+</html>
