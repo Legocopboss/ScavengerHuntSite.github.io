@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <style>
+
+  </style>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+  </head>
+  <body>
+
+    <div id="reader" width="600px"></div>
+
+
+    <br><br><br><br>
+    <a href="https://legocopboss.github.io/ScavengerHuntSite.github.io/index.html?naf">Click <b>HERE</b> to go back</a>
+    <!--
+    <h1>If you can see this then the scanner is probably broken</h1>
+    -->
+    <script src="html5-qrcode.min.js"></script>
+    <script>
+
+
+      function onScanSuccess(qrMessage) {
+        // handle the scanned code as you like
+        //console.log(`QR matched = ${qrMessage}`);
+        window.location.href = qrMessage;
+      }
+
+      function onScanFailure(error) {
+        // handle scan failure, usually better to ignore and keep scanning
+          console.warn(`QR error = ${error}`);
+        //}
+      }
+
+      let html5QrcodeScanner = new Html5QrcodeScanner(
+        "reader", { fps: 10, qrbox: 250 }, /* verbose= */ true);
+      html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+    </script>
+  </body>
+</html>
