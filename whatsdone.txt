@@ -12,13 +12,13 @@ Lots of stuff is done
 -NFC tags????? I had that idea don't know if i should invest in a few. Not too expensive but they loook fun. Let me know what you think
 -welcome box looks ~funky~ on phones and i honesly have no clue why
 -turned off click for my sanity's sake
-Original scanner code can be found at https://scavenger-hunt.live/OGscanner.html
+Original scanner code can be found at https://legocopboss.github.io/ScavengerHuntSite.github.io/OGscanner.html
 -Theres a lot of easter eggs
 -I have too much time on my hands
 
--fixed www.scavenger-hunt.live so it now redirects to main site
+-fixed www.scavenger-hunt.live so it now redirects to main site --No longer works since moving to github
 
-
+-Moved site to Github
 
 TESTING
 -Above iPhone 5/Se website looks good (A little cramped on that phone screen)
