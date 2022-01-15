@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    #container {
+      margin: 0px auto;
+      width: auto;
+      height: 375px;
+      border: 10px #333 solid;
+      align-content: center;
+    }
+    #videoElement {
+      width: auto;
+      height: 375px;
+      background-color: #333;
+      autoplay: "true";
+    }
+  </style>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+  </head>
+  <body>
+    <div id="container">
+	    <video autoplay="true" id="videoElement" capture="camera">
+	    </video>
+    </div>
+    <button onClick="streams()">asdf</button>
+    <br><br><br><br>
+    <a href="https://scavenger-hunt.live/index.html?naf">Click <b>HERE</b> to go back</a>
+    <h1>If you can see this then the scanner is probably broken</h1>
+    <script>
+      var video = document.querySelector("#videoElement");
+
+      if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(function (stream) {
+            video.srcObject = stream;
+          })
+          .catch(function (err0r) {
+            alert("Something went wrong!");
+          });
+      }
+    </script>
+  </body>
+</html>
